@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Format Tanggal Di JavaScript</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<input type="radio" name="radio" id="open">
+	<input type="radio" name="radio" id="close" checked>
+
+	<!-- nav -->
+	<nav id="navbar">
+		<div class="right-side">
+			<div class="nav-link-wrapper"><a href="index.html" class="page-scroll">Home</a></div>
+			<div class="nav-link-wrapper"><a href="index.html" class="page-scroll">About</a></div>
+			<div class="nav-link-wrapper"><a href="index.html" class="page-scroll">Article</a></div>
+			<div class="nav-link-wrapper"><a href="index.html" class="page-scroll">Contact</a></div>
+		</div>
+
+		<label for="open" class="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+		<label for="close" class="cross">
+			<span></span>
+			<span></span>
+		</label>
+
+		<!-- tombol dark mode -->
+		<label class="checked">
+			<input type="checkbox" onclick="ubahMode()">
+			<span class="check"></span>
+		</label>
+
+		<!-- <div class="darkmode">
+			<p>Dark Mode</p>
+		</div> -->
+	</nav>
+
+	<!-- conten -->
+	<div class="body-article1">
+		<h1>Format Tanggal Di JavaScript</h1>
+		<div class="bagi-empat">
+			<p>Sebelum negara api menyerang, programmer harus mengeluarkan sedikit effort lebih untuk mengubah sebuah string menjadi format tanggal, tapi sekarang jadi lebih mudah lho.
+
+				Ketika saya menerima sebuah string yang bentuknya sebuah tanggal dari API, saya sedikit kesulitan untuk memformat data tersebut.
+
+				Saya mendapatkan saran dari teman untuk menginstall sebuah library, namanya <a href="https://date-fns.org/" class="text-primary-500 dark:text-primary-400 animated-underline border-dark-900 dark:border-dark-100" target="_blank" rel="noopener noreferrer">date-fns</a>.
+
+			Tapi saya pikir-pikir, bisa gak ya, saya format pake kode saya tanpa harus install sebuah library?.</p>
+		</div>
+
+		<div class="bagi-empat">
+			<p>Ternyata ada sebuah method dari JavaScript yang ngebantu saya buat format tanggal.
+
+				Method ini me-return sebuah string dari tanggal yang di format, dan sesuai dengan konfigurasi yang saya atur.
+
+				Karena saya ingin membuat function ini reusable, saya akan membuat sebuah function yang nantinya akan memformat sebuah string ke format tanggal, misalnya.
+			</p>
+			<div class="img-code">
+				<img src="img/code1.png" alt="" class="responsive" width="684" height="88" loading="lazy">
+			</div>
+		</div>
+
+		<div class="bagi-empat">
+			<p>Agar lebih terskala, saya menambahkan 2 tambahan parameter, yakni</p>
+		</div>
+
+		<div class="bagi-empat">
+			<ul>
+				<li>
+					<strong>locale</strong>
+				Untuk menentukan region apa yang digunakan untuk memformat tanggal tersebut, contohnya dari function yang saya buat sebelumnya yaitu memformat tanggal ke dalam format Indonesia.</li>
+				<li>
+					<strong>config</strong>
+					Untuk mengatur format dari tanggal tersebut, yang menerima sebuah object,
+				object ini akan berisi property year, month, dan day.</li>
+			</ul>
+			<p>Function tersebut akan menjadi:</p>
+			<div class="img-code">
+				<img src="img/code2.png" alt="" class="responsive" width="644" height="291" loading="lazy">
+			</div>
+		</div>
+		<p>Cukup mudah untuk memformat sebuah tanggal bukan?
+			<p>tidak perlu menggunakan sebuah library jika ingin memformat tanggal.</p></p>
+		</div>
+
+		<!-- footer -->
+		<footer>
+			<div class="footer-content">
+				<h3>Let's Connect!</h3>
+				<ul class="socials">
+					<li><a href="https://web.facebook.com/profile.php?id=100004387156114" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook fa-2x"></i></a></li>
+					<li><a href="https://twitter.com/Kontolodon84" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter fa-2x"></i></a></li>
+					<li><a href="https://www.instagram.com/mindcontrol24434/" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram fa-2x"></i></a></li>
+					<li><a href="mailto:salmanrezzi96@gmail.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-envelope fa-2x"></i></a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy;2022 - Salman Tubagus Alfarizi</p>
+			</div>
+		</footer>
+
+		<!-- script1 -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="script.js"></script>
+
+		<!-- script2 -->
+		<script type="text/javascript">
+			var lastScrollTop = 0;
+			navbar = document.getElementById("navbar");
+			window.addEventListener("scroll", function(){
+				var scrollTop = window.pageYOffset || document
+				.documentElement.scrollTop;
+				if (scrollTop > lastScrollTop){
+					navbar.style.top="-80px";
+				} else {
+					navbar.style.top="0";
+				}
+				lastScrollTop = scrollTop;
+			})
+		</script>
+
+		<!-- script(darkmode) -->
+		<script>
+			if(localStorage.getItem('theme') =='dark')
+				ubahMode()
+
+			function ubahMode(){
+
+				let isDark = document.body.classList.toggle('dark')
+
+				if (isDark) {
+					localStorage.setItem('theme', 'dark')
+				} else {
+					localStorage.removeItem('theme', '')
+				}
+			}
+		</script>
+	</body>
+	</html>
